@@ -14,7 +14,7 @@ public class PencilTDDTest {
 
     @Before
     public void init() {
-        pencil = new PencilTDD();
+        pencil = new PencilTDD(1000);
         paper = new Paper();
     }
     
@@ -35,6 +35,12 @@ public class PencilTDDTest {
         pencil.write(paper, writeText);
         pencil.write(paper, writeMoreText);
         assertEquals(paper.content, writeText.concat(writeMoreText));
+    }
+    
+    @Test
+    public void durabilityDecrement() {
+        pencil.write(paper, "abc");
+        assertEquals(997, pencil.getDurability());
     }
 
 }
