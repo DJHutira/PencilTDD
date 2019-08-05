@@ -25,5 +25,16 @@ public class PencilTDDTest {
         pencil.write(paper, writeText);
         assertEquals(paper.content, writeText);
     }
+    
+    @Test
+    public void writeMultipleLines() {
+      
+        Paper paper = new Paper();
+        String writeText = "This is some text";
+        String writeMoreText = "This is some more text";
+        pencil.write(paper, writeText);
+        pencil.write(paper, writeMoreText);
+        assertEquals(paper.content, writeText.concat(writeMoreText));
+    }
 
 }
