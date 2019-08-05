@@ -8,19 +8,20 @@ import org.junit.Test;
 
 public class PencilTDDTest {
     
-    PencilTDD pencil = new PencilTDD();
+    PencilTDD pencil; 
+    Paper paper;
 
 
     @Before
     public void init() {
         pencil = new PencilTDD();
+        paper = new Paper();
     }
     
     
     @Test
     public void writeSingleLine() {
       
-        Paper paper = new Paper();
         String writeText = "This is some text";
         pencil.write(paper, writeText);
         assertEquals(paper.content, writeText);
@@ -28,8 +29,7 @@ public class PencilTDDTest {
     
     @Test
     public void writeMultipleLines() {
-      
-        Paper paper = new Paper();
+
         String writeText = "This is some text";
         String writeMoreText = "This is some more text";
         pencil.write(paper, writeText);
