@@ -11,7 +11,7 @@ public class PencilTDD {
     public void write(Paper paper, String text) {
         
         paper.content = paper.content.concat(text);
-        decrement(text);
+        decrementDurability(text);
         
     }
     
@@ -19,8 +19,16 @@ public class PencilTDD {
         return this.durability;
     }
     
-    private void decrement(String text) {
-        durability -= text.length();
+    private void decrementDurability(String text) {
+        int textWeight=0;
+        for( int i=0; i<text.length(); i++) {
+            if (Character.isUpperCase(text.charAt(i))) {
+                textWeight += 2;
+            } else {
+                textWeight += 1;
+            }
+        }
+        durability -= textWeight;
     }
     
 

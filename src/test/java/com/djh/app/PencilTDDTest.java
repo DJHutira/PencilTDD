@@ -42,5 +42,11 @@ public class PencilTDDTest {
         pencil.write(paper, "abc");
         assertEquals(997, pencil.getDurability());
     }
+   
+    @Test
+    public void durabilityDecrementUpperLowerCase() {
+        pencil.write(paper, "Abc");
+        assertEquals(996, pencil.getDurability());
+    }
 
 }
